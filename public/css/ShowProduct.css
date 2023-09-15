@@ -1,0 +1,563 @@
+/* start variabls */
+:root {
+  --main-color: #1592ca;
+  --secand-color: #dc8035;
+  --section-padding: 100px;
+}
+
+/* end variabls */
+
+/* start global rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(59, 65, 68);
+  font-family: 'Amiri', serif;
+  font-family: 'Cairo', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.contener {
+  /* background-color: #aaa; */
+  /* padding-left: 80px;
+    padding-right: 80px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* small screen */
+@media (max-width: 768px) {
+  .contener {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .contener {
+    width: 750px;
+  }
+}
+
+/* mediom screen */
+@media (min-width: 992px) {
+  .contener {
+    width: 970px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* larg screen */
+@media (min-width: 1200px) {
+  .contener {
+    width: 1170px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+/* end global rules */
+
+.head {
+  background-color: var(--main-color);
+  justify-content: space-around;
+}
+
+.head .search::before {
+  font-family: var(--fa-style-family-classic);
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--grey-color);
+}
+
+.head .search input {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-left: 5px;
+  padding-left: 30px;
+  width: 160px;
+  transition: width 0.3s;
+}
+
+.head .search input:focus {
+  width: 200px;
+}
+
+.head .search input:focus::placeholder {
+  opacity: 0;
+}
+
+.head .logo {
+  transition: 0.2s;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.head .textlogin {
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.head .textlogin:hover {
+  color: var(--secand-color);
+}
+
+.head .login {
+  font-size: 20px;
+  color: white;
+  padding-right: 37px;
+}
+
+@media (min-width: 768px) {
+  .head .login {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .head .textlogin {
+    display: none;
+  }
+}
+
+.content .contener .images_top {
+  margin-top: 10px;
+  /* background-color: #528399; */
+  position: relative;
+  height: 500px;
+  max-height: calc(-230px + 100vh);
+  min-height: 275px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.content .contener .images_top .mySlides {
+  /* display: none; */
+  width: 100%;
+  height: 100%;
+
+}
+
+.content .contener .images_top .mySlides_one {
+  display: block;
+}
+
+.content .contener .images_top .mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.content .contener .images_top .mySlides img:hover {
+  transform: scale(1.08);
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+/* start...........................popup.............................image */
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 90%;
+  max-width: 800px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+/* end...........................popup.............................image */
+
+.information .contener .content {
+  padding: 0px 20px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .information .contener .content {
+    flex-direction: column;
+  }
+
+  .information .contener .content .location {
+    padding-bottom: 20px;
+  }
+}
+
+.information .contener .content .location h1 {
+  font-size: 28px;
+}
+
+.information .contener .content .location .span4 {
+  font-weight: normal !important;
+  color: #6c6969e3;
+  font-size: 22px;
+}
+
+.information .contener .content .price {
+  display: flex;
+}
+
+.information .contener .content .price h1 {
+  font-size: 28px;
+}
+
+.information .contener .content .price i {
+  font-size: 24px;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.information .contener .content .location samp {
+  padding-left: 8px;
+}
+
+/* start explain */
+.explain .contener .content {
+  padding: 20px;
+}
+
+.explain .contener .content .description h3,
+.explain .contener .content .highlights h3,
+.explain .contener .content .Interior_Features h3 {
+  padding-bottom: 10px;
+  color: var(--main-color);
+}
+
+.explain .contener .content .description p {
+  font-size: 20px;
+}
+
+.explain .contener .content .description,
+.explain .contener .content .highlights,
+.explain .contener .content .Interior_Features {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+.explain .contener .content .highlights {
+  padding: 5px;
+  border: 1px solid #bfbabaa1;
+  border-radius: 10px;
+}
+
+.explain .contener .content .highlights .all_flex {
+  display: flex;
+  max-height: 120px;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .explain .contener .content .highlights .all_flex {
+    max-height: 100%;
+    flex-wrap: nowrap;
+  }
+}
+
+.explain .contener .content .highlights .all {
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+}
+
+.explain .contener .content .highlights .all i {
+  font-size: 20px;
+  color: rgb(0, 113, 169);
+  width: 30px;
+  text-align: center;
+}
+
+.explain .contener .content .highlights .all2 {
+  display: flex;
+  flex-direction: row;
+  width: 275px;
+  text-align: center;
+  width: 100%;
+}
+
+.explain .contener .content .highlights .all2 .info1 {
+  width: 35%;
+}
+
+.explain .contener .content .highlights .all2 .info2 {
+  width: 65%;
+  padding-left: 65px;
+}
+
+hr {
+  color: #c1c1c173;
+}
+
+.explain .contener .content .Interior_Features .tour label {
+  display: block;
+  padding-bottom: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.explain .contener .content .Interior_Features .tour input,
+.explain .contener .content .Interior_Features .tour select {
+  appearance: none;
+  width: 100%;
+  margin: 0px;
+  padding: 9px 16px;
+  border: 1px solid rgb(209, 209, 213);
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: text;
+  outline: currentcolor none medium;
+  box-shadow: none;
+  color: rgb(42, 42, 51);
+  text-transform: none;
+  caret-color: rgb(0, 106, 255);
+  height: auto;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: rgb(246, 246, 250);
+}
+
+.explain .contener .content .Interior_Features .tour input:hover,
+.explain .contener .content .Interior_Features .tour select:hover {
+  border-color: rgb(0, 106, 255);
+}
+
+.explain .contener .content .Interior_Features .tour input:focus,
+.explain .contener .content .Interior_Features .tour select:focus {
+  outline: 0;
+  transition: box-shadow .3s;
+  box-shadow: inset 0 0 0 #F9F9FB, 0 0 5px #62aef7;
+  border-color: rgb(0, 106, 255);
+}
+
+.explain .contener .content .Interior_Features .tour form div {
+  padding-bottom: 20px;
+}
+
+.explain .contener .content .Interior_Features .tour form .submit {
+  background-color: rgb(0, 106, 255);
+  border-color: rgb(0, 106, 255);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.explain .contener .content .Interior_Features .tour form .submit:hover {
+  background-color: rgb(13, 69, 153);
+  border-color: rgb(13, 69, 153);
+  color: rgb(255, 255, 255);
+}
+
+/* end explain */
+/* <!-- start Footer --> */
+.footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-image: url(../images/5.jpg);
+  background-size: cover;
+  color: var(--main-color);
+  text-align: center;
+  position: relative;
+}
+
+.footer .contener {
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 70%);
+}
+
+.footer img {
+  padding-bottom: 50px;
+  cursor: pointer;
+}
+
+.footer p:not(.copyright) {
+  text-transform: uppercase;
+  padding: 30px 20px;
+  width: fit-content;
+  font-size: 22px;
+  margin: 20px auto;
+  border-bottom: 1px solid white;
+}
+
+.footer i {
+  font-size: 25px;
+  padding: 15px 20px;
+  cursor: pointer;
+
+}
+
+.footer p {
+  padding-top: 30px;
+}
+
+.footer .copyright span {
+  color: var(--main-color);
+}
+
+.h1_online {
+  color: var(--main-color);
+}
+
+/* <!-- end Footer --> */
